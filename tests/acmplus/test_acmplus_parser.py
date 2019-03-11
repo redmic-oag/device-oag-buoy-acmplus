@@ -6,8 +6,8 @@ from unittest.mock import patch
 
 from nose.tools import eq_, ok_
 
-from device.acmplus import ACMPlusReader
-from device.item import ACMPlusItem
+from acmplus.acmplus import ACMPlusReader
+from acmplus.item import ACMPlusItem
 from uuid import uuid4
 
 

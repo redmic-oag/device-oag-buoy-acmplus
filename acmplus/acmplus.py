@@ -10,7 +10,7 @@ from buoy.base.device.threads.reader import DeviceReader
 from buoy.base.service.daemon import Daemon
 from buoy.base.utils.config import *
 from buoy.base.database import DeviceDB
-from device.item import ACMPlusItem
+from acmplus.item import ACMPlusItem
 from buoy.base.utils.argsparse import parse_args
 
 

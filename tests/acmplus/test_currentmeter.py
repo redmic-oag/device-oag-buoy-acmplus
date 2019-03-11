@@ -1,6 +1,6 @@
 import unittest
 
-from device.acmplus import ACMPlusDaemon
+from acmplus.acmplus import ACMPlusDaemon
 from buoy.tests.base_device_tests import BaseDeviceTest
 
 

@@ -5,7 +5,7 @@ from decimal import *
 
 from nose.tools import eq_, ok_
 
-from device.item import ACMPlusItem
+from acmplus.item import ACMPlusItem
 
 
 class TestACMlusItemCalculate(unittest.TestCase):

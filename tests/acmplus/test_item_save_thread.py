@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime, timezone
 from buoy.tests.item_save_thread import ItemSaveThreadTest
-from device.item import ACMPlusItem
+from acmplus.item import ACMPlusItem
 
 
 def get_item():
