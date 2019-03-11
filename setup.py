@@ -15,8 +15,10 @@ here = path.abspath(path.dirname(__file__))
 
 if environ.get('CI_COMMIT_TAG'):
     version = environ['CI_COMMIT_TAG']
-else:
+elif environ.get('CI_JOB_ID'):
     version = environ['CI_JOB_ID']
+else:
+    version = '0.0.0'
 
 setup(
     name='ACMPlus',
@@ -111,7 +113,7 @@ setup(
     entry_points={
         'console_scripts': [
             # Measuremnt device
-            'current-meter-acmplus=device.acmplus:main'
+            'current-meter-acmplus=acmplus.acmplus:main'
         ],
     },
 )
