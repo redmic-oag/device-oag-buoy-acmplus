@@ -1,0 +1,21 @@
+service:
+  path_pidfile: ./tests/logs/
+
+database:
+    database: boyadb
+    user: username
+    password: password
+    host: localhost
+
+serial:
+    port: /dev/current_meter
+    baudrate: 115200
+    stopbits: 1
+    parity: N
+    bytesize: 8
+    timeout: 0
+
+mqtt:
+    broker_url: broker.hivemq.com
+    client_id: granadilla-buoy-currentmeter-acmplus
+    topic_data: redmic/activity/1284

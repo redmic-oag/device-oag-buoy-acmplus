@@ -1,0 +1,15 @@
+[Unit]
+Description=Current Meter - ACMPlus
+After=multi-user.target dev-current_meter_acmplus.device
+BindsTo=dev-current_meter_acmplus.device
+
+[Service]
+Type=idle
+ExecStart=/usr/local/bin/current-meter-acmplus
+PIDFile=/var/run/buoy/current-meter-acmplus.pid
+ExecStop=/usr/bin/pkill -15 /var/run/buoy/current-meter-acmplus.pid
+TimeoutStopSec=5
+Restart=on-failure
+
+[Install]
+WantedBy=dev-current_meter_acmplus.device
