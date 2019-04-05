@@ -46,11 +46,13 @@ class ACMPlus(Device):
 
 
 class ACMPlusDaemon(ACMPlus, Daemon):
-    def __init__(self, name, config):
-        db = DeviceDB(db_config=config['database'], db_tablename=name, cls_item=ACMPlusItem)
+    def __init__(self, name, **kwargs):
+        db_conf = kwargs.pop('database')
+        service_conf = kwargs.pop('service')
+        db = DeviceDB(db_config=db_conf, db_tablename=name, cls_item=ACMPlusItem)
 
-        Daemon.__init__(self, daemon_name=DAEMON_NAME, daemon_config=config['service'])
-        ACMPlus.__init__(self, serial_config=config['serial'], db=db, mqtt=config['mqtt'])
+        Daemon.__init__(self, daemon_name=DAEMON_NAME, daemon_config=service_conf)
+        ACMPlus.__init__(self, db=db, **kwargs)
 
     def before_stop(self):
         self.disconnect()
@@ -60,7 +62,7 @@ def run(config_buoy: str, config_log_file: str):
     logging.config.dictConfig(load_config_logger(path_config=config_log_file))
     buoy_config = load_config(path_config=config_buoy)
 
-    daemon = ACMPlusDaemon(name=DEVICE_NAME, config=buoy_config)
+    daemon = ACMPlusDaemon(name=DEVICE_NAME, **buoy_config)
     daemon.start()
 
 
